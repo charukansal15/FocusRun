@@ -1,0 +1,7 @@
+:root, [data-theme='deep-focus'] { --color-bg: #071321; --color-surface: #102238; --color-surface-raised: #162c46; --color-text: #f2f8ff; --color-text-muted: #9eb0c5; --color-primary: #40d8cf; --color-accent: #6ea8ff; --color-success: #73d493; --color-danger: #ff7f91; --ring-track: #213b57; --border: #24415f; --glow: 0 0 22px rgb(64 216 207 / 18%); --font-display: "SFMono-Regular", Consolas, "Liberation Mono", monospace; --font-body: Inter, ui-sans-serif, system-ui, sans-serif; --radius-md: 14px; --transition-fast: 150ms ease; --transition-med: 300ms ease; }
+* { box-sizing: border-box; }
+html, body, #root { min-height: 100%; margin: 0; }
+body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; scroll-behavior: auto !important; } }
