@@ -10,11 +10,11 @@ import { progressionForXp } from '../services/progression.js';
 const router = Router();
 router.use(requireAuth);
 
-router.patch('/me/daily-goal', (request: AuthedRequest, response, next) => {
+router.patch('/me/daily-goal', async (request: AuthedRequest, response, next) => {
   try {
     const raw = request.body?.minutes;
     const minutes = raw === null ? null : requirePositiveInteger(raw, 'Daily goal', 1, 600);
-    const user = updateDailyGoal(request.userId as string, minutes);
+    const user = await updateDailyGoal(request.userId as string, minutes);
     if (!user) throw new ApiError(401, 'UNAUTHORIZED', 'Your account no longer exists.');
     response.json({ user: { ...user, ...progressionForXp(user.xp) } });
   } catch (error) { next(error); }
